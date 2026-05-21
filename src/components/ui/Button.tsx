@@ -53,9 +53,13 @@ export function Button({
   );
 
   if (href) {
-    if (external) {
+    if (external || href.startsWith("tel:") || href.startsWith("mailto:")) {
       return (
-        <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+        <a
+          href={href}
+          className={classes}
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
           {children}
         </a>
       );

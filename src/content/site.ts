@@ -18,12 +18,13 @@ export const site = {
     address: "2 allée entre 2 bois",
     city: "69380 Lissieu",
     zone: "Lissieu et 20 km autour",
-    /** Centre de la zone d'intervention (lat, lng) — Lissieu */
+    /** Centre carte zone d'intervention (lat, lng) — adresse / Lissieu */
     mapCenter: [45.8136, 4.7406] as const,
     zoneRadiusKm: 20,
-    /** Lien « Voir sur Google Maps » — remplacez par le lien « Partager » de votre fiche Google Business si vous l’avez */
+    /** Adresse complète pour la carte Google (repère rouge) */
+    mapAddress: "2 allée entre 2 bois, 69380 Lissieu, France",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Matopio+Paysage+69380+Lissieu",
+      "https://www.google.com/maps/search/?api=1&query=2+all%C3%A9e+entre+2+bois,+69380+Lissieu,+France",
     openingHours: "Lun – Ven : 8h – 18h",
   },
 

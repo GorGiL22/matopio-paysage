@@ -1,15 +1,23 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { site } from "@/content/site";
 
 export function GoogleZoneMap() {
-  const [lat, lng] = site.contact.mapCenter;
-  const embedSrc = `https://www.google.com/maps?q=${lat},${lng}&z=10&hl=fr&output=embed`;
+  const mapQuery = site.contact.mapAddress;
+  const embedSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&hl=fr&z=11&output=embed`;
 
   return (
     <div className="mt-4 space-y-3">
+      <p className="flex items-start gap-2 text-sm text-charcoal/70">
+        <MapPin size={16} className="mt-0.5 shrink-0 text-forest" />
+        <span>
+          {site.contact.address}
+          <br />
+          {site.contact.city}
+        </span>
+      </p>
       <iframe
         src={embedSrc}
-        title={`Zone d'intervention — ${site.contact.zone}`}
+        title={`${site.name} — ${site.contact.address}, ${site.contact.city}`}
         className="h-56 w-full rounded-xl border border-beige/80"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

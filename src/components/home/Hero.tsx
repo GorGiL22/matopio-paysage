@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 
@@ -34,10 +34,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55 }}
-          className="mt-10"
+          className="mt-10 flex flex-col items-center gap-4"
         >
           <Button href="/contact" size="lg" variant="primary">
             Demander un devis
+          </Button>
+          <Button href={`tel:${site.contact.phone}`} size="lg" variant="outline">
+            <Phone size={18} />
+            Appeler — {site.contact.phoneDisplay}
           </Button>
         </motion.div>
       </div>
