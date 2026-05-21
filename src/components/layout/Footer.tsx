@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Share2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { navigation, site } from "@/content/site";
 import { Logo } from "@/components/layout/Logo";
 
@@ -15,20 +15,6 @@ export function Footer() {
             <p className="mt-3 text-sm text-cream/70 leading-relaxed max-w-xs">
               {site.tagline}. Artisan paysagiste au service de vos espaces extérieurs.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {([["Instagram", site.social.instagram]] as const).map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1.5 text-xs text-cream/80 hover:bg-cream/20 hover:text-cream transition-colors"
-                >
-                  <Share2 size={14} />
-                  {label}
-                </a>
-              ))}
-            </div>
           </div>
 
           <div>
