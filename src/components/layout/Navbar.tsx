@@ -22,15 +22,15 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 border-b border-charcoal/8 bg-white py-1.5 transition-shadow duration-300 md:py-2",
+        "fixed top-0 left-0 right-0 z-50 overflow-x-clip border-b border-charcoal/8 bg-white py-1.5 transition-shadow duration-300 md:py-2",
         scrolled ? "shadow-md shadow-charcoal/10" : "shadow-sm shadow-charcoal/5",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6 lg:px-8">
-        <Logo priority imageClassName="h-11 w-auto sm:h-12 md:h-14" />
+      <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-3 sm:gap-4 sm:px-6 lg:px-8">
+        <Logo priority imageClassName="h-10 w-auto sm:h-12 md:h-14" />
 
         <nav
-          className="flex flex-1 items-center justify-center gap-3 sm:gap-6 md:gap-8"
+          className="flex min-w-0 items-center justify-center gap-2 sm:gap-5 md:gap-8"
           aria-label="Navigation principale"
         >
           {headerNavigation.map((item) => (
@@ -38,7 +38,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium tracking-wide transition-colors sm:text-base",
+                "whitespace-nowrap text-xs font-medium transition-colors sm:text-sm md:text-base",
                 "text-charcoal/70 hover:text-forest",
                 pathname === item.href && "text-forest",
               )}
@@ -52,7 +52,7 @@ export function Navbar() {
           href="/contact"
           size="sm"
           variant="primary"
-          className="shrink-0 !px-5 !py-2 text-xs sm:text-sm"
+          className="shrink-0 !px-3 !py-1.5 text-[11px] shadow-md sm:!px-4 sm:!py-2 sm:text-xs sm:shadow-lg md:text-sm"
         >
           <span className="hidden min-[400px]:inline">Demander un devis</span>
           <span className="min-[400px]:hidden">Devis</span>
