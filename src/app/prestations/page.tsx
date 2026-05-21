@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "Prestations paysagistes",
   description:
-    "Tonte, taille de haies, élagage, engazonnement, débroussaillage et création paysagère. Matopio Paysage, paysagiste à Lissieu.",
+    "Tonte, taille de haies, élagage, engazonnement, plantation, débroussaillage et création paysagère. Matopio Paysage, paysagiste à Lissieu.",
   path: "/prestations",
 });
 

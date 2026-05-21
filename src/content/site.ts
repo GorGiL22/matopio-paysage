@@ -6,9 +6,9 @@
 
 export const site = {
   name: "Matopio Paysage",
-  tagline: "Entretiens de jardins et aménagement d'espaces extérieurs",
+  tagline: "Entretien et Création de jardins",
   description:
-    "Paysagiste professionnel en France. Tonte, taille de haies, élagage, engazonnement, débroussaillage et création paysagère. Devis gratuit sous 48h.",
+    "Paysagiste professionnel en France. Tonte, taille de haies, élagage, engazonnement, plantation, débroussaillage et création paysagère. Devis gratuit sous 48h.",
   url: "https://www.matopio-paysage.fr", // À remplacer par votre domaine
 
   contact: {

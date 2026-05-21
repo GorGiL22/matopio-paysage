@@ -27,7 +27,7 @@ export function ReviewsSection({
   return (
     <section className="py-20 md:py-28 bg-cream">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeader title={title} subtitle={subtitle} />
+        <SectionHeader title={title} subtitle={subtitle} eyebrow={false} />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -21,6 +21,8 @@ export type Service = {
   description: string;
   icon: ServiceIcon;
   image: string;
+  /** false = visible uniquement sur /prestations */
+  showOnHome?: boolean;
 };
 
 export const services: Service[] = [
@@ -68,6 +70,16 @@ export const services: Service[] = [
       "Préparation du sol, nivellement, semis ou pose de gazon en rouleau. Nous choisissons ensemble la solution adaptée à votre terrain, votre budget et votre usage.",
     icon: "sprout",
     image: "/assets/images/prestations/engazonnement-prestation.jpg",
+    showOnHome: false,
+  },
+  {
+    id: "plantation",
+    title: "Plantation",
+    shortDescription: "Arbres, arbustes, haies et massifs floraux installés avec soin.",
+    description:
+      "Plantation d'arbres, arbustes, haies et vivaces : préparation du sol, choix des essences adaptées à votre terrain et mise en place soignée pour une reprise optimale.",
+    icon: "trees",
+    image: "/assets/images/projects/plantation-apres.jpg",
   },
   {
     id: "creation",
@@ -79,3 +91,5 @@ export const services: Service[] = [
     image: "/assets/images/prestations/creation-prestation.jpg",
   },
 ];
+
+export const homeServices = services.filter((s) => s.showOnHome !== false);

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 type SectionHeaderProps = {
   title: string;
   subtitle?: string;
+  eyebrow?: string | false;
   align?: "left" | "center";
   light?: boolean;
   className?: string;
@@ -14,6 +15,7 @@ type SectionHeaderProps = {
 export function SectionHeader({
   title,
   subtitle,
+  eyebrow = "Matopio Paysage",
   align = "center",
   light = false,
   className,
@@ -30,14 +32,16 @@ export function SectionHeader({
         className,
       )}
     >
-      <span
-        className={cn(
-          "mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em]",
-          light ? "text-beige/80" : "text-sage",
-        )}
-      >
-        Matopio Paysage
-      </span>
+      {eyebrow !== false && (
+        <span
+          className={cn(
+            "mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em]",
+            light ? "text-beige/80" : "text-sage",
+          )}
+        >
+          {eyebrow}
+        </span>
+      )}
       <h2
         className={cn(
           "font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-tight",

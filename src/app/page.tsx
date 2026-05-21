@@ -6,7 +6,7 @@ import { ReviewsSection } from "@/components/avis/ReviewsSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { homeSections } from "@/content/site";
-import { services } from "@/content/services";
+import { homeServices } from "@/content/services";
 import { projects } from "@/content/projects";
 import { fetchGoogleReviews } from "@/lib/google-reviews";
 
@@ -22,9 +22,10 @@ export default async function HomePage() {
           <SectionHeader
             title={homeSections.prestations.title}
             subtitle={homeSections.prestations.subtitle}
+            eyebrow={false}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
+            {homeServices.map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} compact />
             ))}
           </div>
@@ -41,6 +42,7 @@ export default async function HomePage() {
           <SectionHeader
             title={homeSections.realisations.title}
             subtitle={homeSections.realisations.subtitle}
+            eyebrow={false}
           />
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, i) => (
