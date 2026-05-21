@@ -47,9 +47,9 @@ export const services: Service[] = [
   {
     id: "debroussaillage",
     title: "Débroussaillages",
-    shortDescription: "Mise en conformité et sécurisation de terrains.",
+    shortDescription: "Entretien et dégagement de terrains, jardins et accès.",
     description:
-      "Débroussaillage mécanique ou manuel, évacuation des déchets verts. Intervention pour prévenir les risques incendie et redonner de la clarté à votre terrain.",
+      "Entretien et dégagement de terrains, jardins et accès. Débroussaillage mécanique ou manuel, évacuation des déchets verts. Intervention pour prévenir les risques incendie et redonner de la clarté à votre terrain.",
     icon: "axe",
     image: "/assets/images/prestations/debroussaillage-prestation.jpg",
   },
