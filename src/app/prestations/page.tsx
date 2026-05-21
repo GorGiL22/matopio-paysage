@@ -39,7 +39,7 @@ export default function PrestationsPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             title="Un accompagnement sur mesure"

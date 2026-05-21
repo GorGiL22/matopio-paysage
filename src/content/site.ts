@@ -24,6 +24,7 @@ export const site = {
     /** Lien « Voir sur Google Maps » — remplacez par le lien « Partager » de votre fiche Google Business si vous l’avez */
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Matopio+Paysage+69380+Lissieu",
+    openingHours: "Lun – Ven : 8h – 18h",
   },
 
   /** Formspree : créez un formulaire sur https://formspree.io et collez l'ID ici */

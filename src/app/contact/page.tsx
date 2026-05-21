@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MapPin, Clock } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactActions } from "@/components/contact/ContactActions";
 import { GoogleZoneMap } from "@/components/contact/GoogleZoneMap";
@@ -52,25 +51,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-2 space-y-6">
-              <div className="rounded-2xl bg-forest p-8 text-cream">
-                <h3 className="font-display text-xl">Coordonnées</h3>
-                <ul className="mt-5 space-y-4 text-sm text-cream/80">
-                  <li className="flex gap-3">
-                    <MapPin size={18} className="shrink-0 text-beige mt-0.5" />
-                    <span>
-                      {site.contact.address}
-                      <br />
-                      {site.contact.city}
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <Clock size={18} className="shrink-0 text-beige mt-0.5" />
-                    <span>Lun – Ven : 8h – 18h</span>
-                  </li>
-                </ul>
-              </div>
-
+            <div className="lg:col-span-2">
               <div className="rounded-2xl border border-beige/80 bg-white p-8">
                 <h3 className="font-medium text-charcoal">Zone d&apos;intervention</h3>
                 <p className="mt-2 text-sm text-charcoal/65 leading-relaxed">

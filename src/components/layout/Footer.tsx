@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Share2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Share2 } from "lucide-react";
 import { navigation, site } from "@/content/site";
 import { Logo } from "@/components/layout/Logo";
 
@@ -79,6 +79,10 @@ export function Footer() {
                   <Mail size={16} className="text-beige" />
                   {site.contact.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Clock size={16} className="mt-0.5 shrink-0 text-beige" />
+                <span>{site.contact.openingHours}</span>
               </li>
             </ul>
           </div>

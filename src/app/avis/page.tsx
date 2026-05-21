@@ -7,7 +7,7 @@ import { fetchGoogleReviews } from "@/lib/google-reviews";
 export const metadata = createMetadata({
   title: "Avis clients Google",
   description:
-    "Découvrez les avis de nos clients sur Google. Note moyenne 4.9/5. Matopio Paysage, paysagiste de confiance à Lyon.",
+    "Découvrez les avis de nos clients sur Google. Note moyenne 5/5. Matopio Paysage, paysagiste de confiance à Lissieu.",
   path: "/avis",
 });
 
@@ -37,12 +37,7 @@ export default async function AvisPage() {
         </div>
       </section>
 
-      <ReviewsSection
-        reviews={reviews}
-        showAll
-        title="Ce que disent nos clients"
-        subtitle="Avis authentiques — connectez l'API Google pour une synchronisation automatique"
-      />
+      <ReviewsSection reviews={reviews} showAll title="Ce que disent nos clients" />
 
       <CtaBanner />
     </>

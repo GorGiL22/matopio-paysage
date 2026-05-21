@@ -4,6 +4,7 @@ import { ServiceCard } from "@/components/prestations/ServiceCard";
 import { BeforeAfterCard } from "@/components/realisations/BeforeAfterCard";
 import { ReviewsSection } from "@/components/avis/ReviewsSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { Button } from "@/components/ui/Button";
 import { homeSections } from "@/content/site";
 import { homeServices } from "@/content/services";
@@ -16,8 +17,9 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <SectionDivider />
 
-      <section id="prestations" className="py-20 md:py-28 bg-white">
+      <section id="prestations" className="py-20 md:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             title={homeSections.prestations.title}
@@ -30,12 +32,13 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Button href="/prestations" variant="primary">
+            <Button href="/prestations" variant="secondary">
               Toutes nos prestations
             </Button>
           </div>
         </div>
       </section>
+      <SectionDivider />
 
       <section className="py-20 md:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -50,18 +53,20 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Button href="/realisations" variant="primary">
+            <Button href="/realisations" variant="secondary">
               {homeSections.realisations.cta}
             </Button>
           </div>
         </div>
       </section>
+      <SectionDivider />
 
       <ReviewsSection
         reviews={reviews}
         title={homeSections.avis.title}
         subtitle={homeSections.avis.subtitle}
       />
+      <SectionDivider />
 
       <CtaBanner />
     </>

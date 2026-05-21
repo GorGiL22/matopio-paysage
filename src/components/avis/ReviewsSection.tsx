@@ -8,6 +8,7 @@ import { site } from "@/content/site";
 import { StarRating } from "./StarRating";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 type ReviewsSectionProps = {
   reviews: Review[];
@@ -22,7 +23,7 @@ export function ReviewsSection({
   title = "Ils nous font confiance",
   subtitle = "Avis clients vérifiés sur Google",
 }: ReviewsSectionProps) {
-  const displayed = showAll ? items : items.slice(0, 3);
+  const displayed = showAll ? items : items.slice(0, 4);
 
   return (
     <section className="py-20 md:py-28 bg-cream">
@@ -37,7 +38,7 @@ export function ReviewsSection({
         >
           <div>
             <p className="font-display text-5xl md:text-6xl text-cream font-medium">
-              {googleReviewsSummary.averageRating}
+              {googleReviewsSummary.averageRating}/5
             </p>
             <StarRating rating={googleReviewsSummary.averageRating} size={22} className="mt-2 justify-center" />
           </div>
@@ -62,7 +63,12 @@ export function ReviewsSection({
           </div>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className={cn(
+            "grid gap-6 md:grid-cols-2",
+            showAll ? "lg:grid-cols-3" : "lg:grid-cols-4",
+          )}
+        >
           {displayed.map((review, index) => (
             <motion.article
               key={review.id}
@@ -90,7 +96,7 @@ export function ReviewsSection({
           ))}
         </div>
 
-        {!showAll && items.length > 3 && (
+        {!showAll && items.length > 4 && (
           <div className="mt-12 text-center">
             <Button href="/avis" variant="secondary">
               Lire tous les avis

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 
@@ -12,6 +12,9 @@ type BeforeAfterCardProps = {
 
 export function BeforeAfterCard({ project, index = 0 }: BeforeAfterCardProps) {
   const [showAfter, setShowAfter] = useState(false);
+  const touchHandledRef = useRef(false);
+
+  const toggle = () => setShowAfter((v) => !v);
 
   return (
     <motion.article
@@ -22,16 +25,32 @@ export function BeforeAfterCard({ project, index = 0 }: BeforeAfterCardProps) {
       className="group"
     >
       <div
-        className="relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-md hover:shadow-2xl hover:shadow-forest/15 transition-shadow duration-500"
-        onMouseEnter={() => setShowAfter(true)}
-        onMouseLeave={() => setShowAfter(false)}
-        onClick={() => setShowAfter((v) => !v)}
+        className="relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer touch-manipulation shadow-md hover:shadow-2xl hover:shadow-forest/15 transition-shadow duration-500"
+        onPointerEnter={(e) => {
+          if (e.pointerType === "mouse") setShowAfter(true);
+        }}
+        onPointerLeave={(e) => {
+          if (e.pointerType === "mouse") setShowAfter(false);
+        }}
+        onPointerDown={(e) => {
+          if (e.pointerType !== "touch") return;
+          touchHandledRef.current = true;
+          toggle();
+        }}
+        onClick={() => {
+          if (touchHandledRef.current) {
+            touchHandledRef.current = false;
+            return;
+          }
+          toggle();
+        }}
         role="button"
         tabIndex={0}
+        aria-pressed={showAfter}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            setShowAfter((v) => !v);
+            toggle();
           }
         }}
         aria-label={`${project.title} — ${showAfter ? "après" : "avant"} travaux`}
@@ -51,9 +70,9 @@ export function BeforeAfterCard({ project, index = 0 }: BeforeAfterCardProps) {
           sizes="(max-width: 768px) 100vw, 50vw"
         />
 
-        <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors pointer-events-none" />
+        <div className="absolute inset-0 bg-charcoal/0 pointer-events-none [@media(hover:hover)]:group-hover:bg-charcoal/10 transition-colors" />
 
-        <div className="absolute top-4 left-4 flex gap-2">
+        <div className="absolute top-4 left-4 flex gap-2 pointer-events-none">
           <span
             className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all ${
               !showAfter
@@ -74,8 +93,9 @@ export function BeforeAfterCard({ project, index = 0 }: BeforeAfterCardProps) {
           </span>
         </div>
 
-        <p className="absolute bottom-4 right-4 text-xs text-cream/80 bg-charcoal/50 backdrop-blur-sm px-3 py-1.5 rounded-full md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-          Survoler ou toucher pour comparer
+        <p className="absolute bottom-4 right-4 text-xs text-cream/80 bg-charcoal/50 backdrop-blur-sm px-3 py-1.5 rounded-full pointer-events-none opacity-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity">
+          <span className="[@media(hover:hover)]:hidden">Toucher pour comparer</span>
+          <span className="hidden [@media(hover:hover)]:inline">Survoler pour comparer</span>
         </p>
       </div>
 
